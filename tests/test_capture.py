@@ -2,20 +2,16 @@ from src.vision.capture import capture_screen
 
 
 def test_capture_screen():
-    resultado = capture_screen()
+    imagem = capture_screen()
 
     print("=== TIPO ===")
-    print(type(resultado.stdout))
+    print(type(imagem))
 
-    print("\n=== TAMANHO ===")
-    print(len(resultado.stdout))
+    print("\n=== DIMENSÕES ===")
+    print(imagem.shape)
 
-    print("\n=== RETURN CODE ===")
-    print(resultado.returncode)
-
-    assert resultado.returncode == 0
-    assert isinstance(resultado.stdout, bytes)
-    assert len(resultado.stdout) > 0
+    assert imagem is not None
+    assert imagem.shape == (2400, 1080, 3)
 
 
 if __name__ == "__main__":
